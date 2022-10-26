@@ -1,0 +1,20 @@
+{% extends "layout.html" %} {% block body %}
+
+<div class="navbar">
+  <a href="/">home</a>
+  <a href="/profile">profile</a>
+  <a href="/logout">logout</a>
+</div>
+<div class="container">
+  <h2>CART</h2>
+  {% for item in items %}
+  <div class="item">
+    <h4>{{item.title}}</h4>
+    <form action="/cart" method="post">
+      <input name="id" type="hidden" value="{{ item.id }}" />
+      <input type="submit" value="delete" />
+    </form>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

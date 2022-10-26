@@ -1,0 +1,12 @@
+{% extends "layout.html" %} {% block body %}
+<div class="navbar">
+  {% if session["name"] %}
+  <a href="/profile">profile</a>
+  {%else%}
+  <a href="/login">login</a>
+  {% endif %}
+</div>
+<div class="center">
+  <h1>Welcome on our website</h1>
+</div>
+{% endblock %}

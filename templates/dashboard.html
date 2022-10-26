@@ -1,0 +1,19 @@
+{% extends "layout.html" %} {% block body %}
+<div class="navbar">
+  <a href="/">home</a>
+  <a href="/logout">logout</a>
+</div>
+<div class="container">
+  <h2>USERS</h2>
+  <ol>
+    {% for user in users %}
+    <li>{{user.name}}</li>
+    <form action="/dashboard" method="post">
+      <input name="id" type="hidden" value="{{ user.id }}" />
+      <input type="submit" value="delete" />
+    </form>
+    <br />
+    {% endfor %}
+  </ol>
+</div>
+{% endblock %}

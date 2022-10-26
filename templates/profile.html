@@ -1,0 +1,24 @@
+{% extends "layout.html" %} {% block body %} {% if name == "admin" %}
+<div class="navbar">
+  <h4>Hey {{name}}!</h2>
+  <a href="/dashboard">dashboard</a>
+</div>
+{% else %}
+<div class="navbar">
+  <h4>Hey {{name}}!</h2>
+  <a href="/cart">cart</a>
+  <a href="/logout">logout</a>
+</div>
+<br />
+<div class="container">
+  {% for item in items %}
+  <div class="item">
+    <h4>{{item.title}}</h4>
+    <form action="/cart" method="post">
+      <input name="title" type="hidden" value="{{ item.title }}" />
+      <input type="submit" value="add" />
+    </form>
+  </div>
+  {% endfor %}
+</div>
+{% endif %} {% endblock %}
